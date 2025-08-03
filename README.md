@@ -28,9 +28,6 @@ return {
 }
 ```
 
-<br>
-
-# 💡 How to use
 It's crucial that you fire the `Loaded` packet whenever you're ready to communicate with the server:
 ```luau
 local packets = require(path.to.Packets)
@@ -43,6 +40,7 @@ packets.Loaded:Fire()
 
 <br>
 
+# 💡 How to use
 To get the players list:
 ```luau
 local players = require(path.to.Players)
