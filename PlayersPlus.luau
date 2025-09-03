@@ -26,6 +26,8 @@ packets.Loaded.OnServerEvent:Connect(function(player)
 end)
 -- Player removal.
 Players.PlayerRemoving:Connect(function(player)
+	if not playerNumbers[player] then return end -- Skip if player was never added to list.
+	
 	players[playerNumbers[player]] = nil
 	playerNumbers[player] = nil
 end)
