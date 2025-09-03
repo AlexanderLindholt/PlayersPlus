@@ -6,26 +6,23 @@ if not packets then error("Could not find packets module.") end
 packets = require(packets)
 
 local players = {}
+local playerNumbers = {}
 
 packets.Loaded.OnServerEvent:Connect(function(player)
-	local index = 0
+	local index = 1
 	while true do
-		index += 1
 		if not players[index] then
 			-- Empty index, so we put the player here.
 			players[index] = player
+			playerNumbers[player] = index
 			return
 		end
+		index += 1
 	end
 end)
 Players.PlayerRemoving:Connect(function(player)
-	for index, plr in players do
-		if plr == player then
-			-- Found the player, so we clear the index.
-			players[index] = nil
-			return
-		end
-	end
+	players[playerNumbers[player]] = nil
+	playerNumbers[player] = nil
 end)
 
-return players
+return players, playerNumbers
