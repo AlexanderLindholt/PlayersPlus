@@ -43,7 +43,7 @@ packets.Loaded:Fire()
 # 💡 How to use
 To get the players list:
 ```luau
-local players, playerNumbers = require(path.to.Players)
+local players, playerNumbers = require(path.to.Players)()
 
 for playerNumber, player in players do
 	print("Player number "..playerNumber.." is "..player.Name.."!") -- Player number 1 is CoolGuy123!
@@ -52,7 +52,7 @@ end
 
 To get a specific player's number:
 ```luau
-local players, playerNumbers = require(path.to.PlayersPlus)
+local players, playerNumbers = require(path.to.PlayersPlus)()
 
 local playerNumber = playerNumbers[SOME_PLAYER]
 ```
