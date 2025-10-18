@@ -9,16 +9,16 @@ packets = require(packets)
 
 -- Player tables.
 local players = {}
-local playerNumbers = {}
+local playerIndices = {}
 
 -- Player insertion.
 packets.Loaded.OnServerEvent:Connect(function(player)
 	local index = 1
 	while true do
 		if not players[index] then
-			-- Found the smallest available number for the player.
+			-- Found the lowest available index for the player.
 			players[index] = player
-			playerNumbers[player] = index
+			playerIndices[player] = index
 			return
 		end
 		index += 1
@@ -26,17 +26,18 @@ packets.Loaded.OnServerEvent:Connect(function(player)
 end)
 -- Player removal.
 Players.PlayerRemoving:Connect(function(player)
-	if not playerNumbers[player] then return end -- Skip if player was never added to list.
+	local index = playerIndices[player]
+	if not index then return end -- Skip if player was never added to list.
 	
-	players[playerNumbers[player]] = nil
-	playerNumbers[player] = nil
+	players[index] = nil
+	playerIndices[player] = nil
 end)
 
 -- Types.
 export type Players = {[number]: Player}
-export type PlayerNumbers = {[Player]: number}
+export type PlayerIndices = {[Player]: number}
 
 -- Function for returning lists. Unfortunately modules can't return tuples.
-return function()
-	return players, playerNumbers
-end :: () -> (Players, PlayerNumbers)
+return function(): (Players, PlayerIndices)
+	return players, playerIndices
+end
