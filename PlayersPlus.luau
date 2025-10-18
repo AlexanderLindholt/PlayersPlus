@@ -1,3 +1,27 @@
+--!optimize 2
+
+--[[
+
+  _____  _                                 
+ |  __ \| |                            _   
+ | |__) | | __ _ _   _  ___ _ __ ___ _| |_ 
+ |  ___/| |/ _` | | | |/ _ \ '__/ __|_   _|
+ | |    | | (_| | |_| |  __/ |  \__ \ |_|  
+ |_|    |_|\__,_|\__, |\___|_|  |___/      
+                  __/ |                    
+                 |___/                     
+
+v1.2.0
+
+A simple custom players list module, which only includes
+ready clients, and retains all player indices.
+
+
+GitHub (repository):
+https://github.com/AlexanderLindholt/PlayersPlus
+
+]]--
+
 -- Services.
 local CollectionService = game:GetService("CollectionService")
 local Players = game:GetService("Players")
