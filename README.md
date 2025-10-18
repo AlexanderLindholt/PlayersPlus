@@ -1,6 +1,7 @@
 <div align="center">
 <h1>Players+</h1>
-A players list that only includes ready clients, and retains all player numbers.
+A simple custom players list module, which only includes<br>
+ready clients, and retains all player indices.
 </div>
 <br>
 ​<br>
