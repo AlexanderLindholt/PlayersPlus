@@ -7,9 +7,9 @@ ready clients, and retains all player indices.
 ​<br>
 <br>
 
-# ⚡ How it's better.
+# ⚡ How it’s better.
 This super simple custom player list will only include ready clients,<br>
-ensuring you never try to communicate with clients that aren't ready.
+ensuring you never try to communicate with clients that aren’t ready.
 
 Additionally, it retains all player numbers (indices), which<br>
 is very useful for certain games where you allow rejoining.
@@ -29,13 +29,13 @@ return {
 }
 ```
 
-It's crucial that you fire the `Loaded` packet whenever you're ready to communicate with the server:
+It’s crucial that you fire the `Loaded` packet whenever you’re ready to communicate with the server:
 ```luau
 local packets = require(path.to.Packets)
 
--- Make sure you're ready first.
+-- Make sure you’re ready first.
 
--- Then we notify the server that we're ready.
+-- Then we notify the server that we’re ready.
 packets.Loaded:Fire()
 ```
 
@@ -51,7 +51,7 @@ for playerNumber, player in players do
 end
 ```
 
-To get a specific player's number:
+To get a specific player’s number:
 ```luau
 local players, playerNumbers = require(path.to.PlayersPlus)()
 
@@ -67,7 +67,7 @@ packets.Loaded.OnServerEvent:Connect(function(player)
 end)
 ```
 > [!warning]
-> If you connect to the `Loaded` packet before requiring Players+, the player will not be apart of the players list immediately for the connected function. Therefore it is recommended to require Players+ first.
+> If you connect to the `Loaded` packet before requiring the Players+ module, the player will not be added to the players list immediately for the connected function. Therefore it is recommended to require Players+ first.
 
 To listen to player removal:
 ```luau
